@@ -46,3 +46,7 @@ When redirecting is required, the library will attempt to simply 'wrap around'.
 ![Diagram](http://i.imgur.com/5i18PQM.png)
 
 As shown in this diagram, the blue branch reaches the yellow branch, and so wraps around to be facing the opposite direction as it originally was.
+
+### Command normalisation
+
+Any relative coordinates in a command are changed to be relative to the _origin point_, or the coordinates (0,0,0) in the world representation.
