@@ -1,0 +1,27 @@
+{
+  "name": "mcil-common",
+  "version": "0.1.0",
+  "description": "Parses MCIL and converts it to a set of blocks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toxic-spanner/mcil-common.git"
+  },
+  "keywords": [
+    "mcil",
+    "parse",
+    "minecraft",
+    "block",
+    "redstone",
+    "command"
+  ],
+  "author": "mrfishie <me@mrfishie.com> (http://mrfishie.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toxic-spanner/mcil-common/issues"
+  },
+  "homepage": "https://github.com/toxic-spanner/mcil-common#readme"
+}
