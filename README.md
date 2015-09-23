@@ -49,4 +49,15 @@ As shown in this diagram, the blue branch reaches the yellow branch, and so wrap
 
 ### Command normalisation
 
-Any relative coordinates in a command are changed to be relative to the _origin point_, or the coordinates (0,0,0) in the world representation.
+Any relative coordinates in a command are changed to be relative to the _origin point_, or the coordinates (0,0,0) in the world representation. To do this, the library must 'guess' which axis the relative direction is for.
+
+By default, `mcil-common` will use the first relative coordinate as the X-axis, the second as the Y-axis, and the third as the Z-axis. The library provides some 'flags' to customize this behaviour, however.
+
+There are four flags, all of which go after the numbder in the relative coordinate. These flags are:
+
+ - `*` - specifies that the library _should not_ change the relative coordinate. For example, `~5*` will become `~5`
+ - `x` or `X` - specifies that the coordinate is on the X-axis. For example, `~5x` or `~5X`
+ - `y` or `Y` - specifies that the coordinate is on the Y-axis. For example, `~5y` or `~5Y`
+ - `z` or `Z` - specifies that the coordinate is on the Z-axis. For example, `~5z` or `~5Z`
+
+If a coordinate is specified to be on a certain axis, the remaining coordinates, if they do not have a flag, will use positions relative to that coordinate. For example, if a coordinate is specified as to be on the Y axis, the next one will be guessed to be on the Z axis, and the next one on the X axis, unless an axis is explicitly provided.
