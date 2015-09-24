@@ -1,6 +1,6 @@
 {
   "name": "mcil-common",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Parses MCIL and converts it to a set of blocks",
   "main": "index.js",
   "scripts": {
