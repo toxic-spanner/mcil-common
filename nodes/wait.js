@@ -1,3 +1,5 @@
+var Block = require('../Block');
+
 module.exports = function(i, node, branchId, branches, world) {
     var duration = node.duration;
 

@@ -9,3 +9,4 @@ function Block(name, nbt, damage) {
     this.y = -1;
     this.z = -1;
 }
+module.exports = Block;
