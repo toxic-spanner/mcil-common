@@ -114,7 +114,7 @@ module.exports = function(i, node, branchId, branches, world, _isConditional) {
     }
 
     var data = {
-        auto: 1,
+        auto: i > 0,
         Command: node.command + ' ' + commandParams,
         conditionMet: 1,
         CustomName: node.name ? node.name : '#',
