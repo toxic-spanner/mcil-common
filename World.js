@@ -1,3 +1,5 @@
+var Block = require('./Block');
+
 function World(dimensions) {
     this.width = dimensions.width;
     this.height = dimensions.height;
@@ -13,6 +15,8 @@ function World(dimensions) {
 
     this.previousPosition = { x: 0, y: 0, z: 0 };
     this.previousDirection = World.directions.XP;
+
+    this._placeCallback = false;
 
     this.directionPattern = [];
 
@@ -33,6 +37,14 @@ World.directions = {
 };
 
 World.prototype.place = function(block, rX, rY, rZ) {
+    if (block._placed) {
+        block = new Block(
+            block.name,
+            block.nbt,
+            block.damage
+        );
+    }
+
     var pos = this.toComponents(rX, rY, rZ);
 
     var xPos = this.map[pos.x];
@@ -42,6 +54,11 @@ World.prototype.place = function(block, rX, rY, rZ) {
     if (!yPos) yPos = xPos[pos.y] = {};
 
     yPos[pos.z] = block;
+
+    block.x = pos.x;
+    block.y = pos.y;
+    block.z = pos.z;
+    if (typeof this._placeCallback === "function") this._placeCallback(block, this);
 };
 
 World.prototype.toComponents = function(rX_dir, rY, rZ) {

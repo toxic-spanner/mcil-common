@@ -101,16 +101,16 @@ module.exports = function(i, node, branchId, branches, world, _isConditional) {
         }
     } else finalDirection = world.direction;
 
-    var distanceNumber;
+    var directionNumber;
     if (finalDirection.x) {
-        if (finalDirection.x > 0) distanceNumber = 5;
-        else distanceNumber = 4;
+        if (finalDirection.x > 0) directionNumber = 5;
+        else directionNumber = 4;
     } else if (finalDirection.y) {
-        if (finalDirection.y > 0) distanceNumber = 3;
-        else distanceNumber = 2;
+        if (finalDirection.y > 0) directionNumber = 3;
+        else directionNumber = 2;
     } else if (finalDirection.z) {
-        if (finalDirection.z > 0) distanceNumber = 1;
-        else distanceNumber = 0;
+        if (finalDirection.z > 0) directionNumber = 1;
+        else directionNumber = 0;
     }
 
     var data = {
@@ -121,7 +121,7 @@ module.exports = function(i, node, branchId, branches, world, _isConditional) {
     };
     if (_isConditional) data.conditional = true;
 
-    world.place(new Block(blockName, data, distanceNumber));
+    world.place(new Block(blockName, data, directionNumber));
 
     world.forward();
 

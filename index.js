@@ -2,10 +2,12 @@ var World = require('./World');
 var followBranch = require('./followBranch');
 var postBranches = require('./postBranches');
 
-exports.trace = function(code, world, cb) {
+exports.walk = function(code, world, cb) {
     if (!world || !world.isWorld) world = new World(world);
 
     if (!code.length) return;
+
+    world._placeCallback = cb;
 
     postBranches.unshift({
         id: 0,
@@ -29,4 +31,6 @@ exports.trace = function(code, world, cb) {
 
         followBranch(branch.id, code, world, cb);
     }
+
+    world._placeCallback = false;
 };
