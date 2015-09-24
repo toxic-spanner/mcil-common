@@ -29,7 +29,7 @@ exports.walk = function(code, world, cb) {
         world.previousDirection = branch.direction;
         world.directionPattern = [];
 
-        followBranch(branch.id, code, world, cb);
+        followBranch(branch.id, code, world);
     }
 
     world._placeCallback = false;
