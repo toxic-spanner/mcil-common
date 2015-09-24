@@ -126,7 +126,10 @@ module.exports = function(i, node, branchId, branches, world, _isConditional) {
         y: world.y,
         z: world.z
     };
-    if (_isConditional) data.conditionMet = 0;
+    if (_isConditional) {
+        data.conditionMet = 0;
+        directionNumber += 8;
+    }
 
     world.place(new Block(blockName, data, directionNumber));
 
