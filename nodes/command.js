@@ -114,12 +114,19 @@ module.exports = function(i, node, branchId, branches, world, _isConditional) {
     }
 
     var data = {
-        CustomName: node.name ? node.name : '#',
+        auto: 1,
         Command: node.command + ' ' + commandParams,
-        TrackOutput: false,
-        auto: true
+        conditionMet: 1,
+        CustomName: node.name ? node.name : '#',
+        id: 'Control',
+        powered: 0,
+        SuccessCount: 0,
+        TrackOutput: 0,
+        x: world.x,
+        y: world.y,
+        z: world.z
     };
-    if (_isConditional) data.conditional = true;
+    if (_isConditional) data.conditionMet = 0;
 
     world.place(new Block(blockName, data, directionNumber));
 

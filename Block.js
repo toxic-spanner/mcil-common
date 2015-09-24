@@ -1,6 +1,6 @@
 function Block(name, nbt, damage) {
     this.name = name;
-    this.damage = damage || -1;
+    this.damage = damage || 0;
     this.nbt = nbt || {};
 
     this._placed = false;
